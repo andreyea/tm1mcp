@@ -1,0 +1,7 @@
+[project]
+name = "tm1mcp"
+version = "0.1.0"
+description = "TM1 MCP Server"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = []
