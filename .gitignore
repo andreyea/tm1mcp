@@ -35,6 +35,7 @@ ENV/
 .env
 .env.local
 *.local.py
+uv.lock
 
 # Logs
 *.log
