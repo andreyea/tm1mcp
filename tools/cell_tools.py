@@ -19,3 +19,25 @@ def get_value(cube_name: str, elements: Union[str, Iterable]) -> Union[str, floa
     with TM1Service(**TM1_CONFIG) as tm1:
         value = tm1.cells.get_value(cube_name=cube_name, elements=elements)
         return value
+
+
+@mcp.tool()
+def execute_mdx_dataframe(mdx: str) -> pd.DataFrame:
+    """Execute an MDX query and return the result as a pandas DataFrame
+    
+    Args:
+        mdx: A valid MDX query
+        
+    Returns:
+        Pandas DataFrame containing the query results
+    """
+    
+    with TM1Service(**TM1_CONFIG) as tm1:
+        df = tm1.cells.execute_mdx_dataframe(
+            mdx=mdx, 
+            skip_zeros=False            
+        )
+        return df
+
+
+
