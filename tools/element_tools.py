@@ -210,3 +210,17 @@ def element_is_ancestor(dimension_name: str, hierarchy_name: str, ancestor_name:
             dimension_name, hierarchy_name, ancestor_name, element_name, method)
 
 
+@mcp.tool()
+def check_element_exists(dimension_name: str, hierarchy_name: str, element_name: str) -> bool:
+    """Check if an element exists in a dimension hierarchy. If hierarchy name is unknown, it is the same as dimension name.
+    
+    Args:
+        dimension_name: Name of the dimension
+        hierarchy_name: Name of the hierarchy
+        element_name: Name of element to check
+    
+    Returns:
+        True if element name exists in the hierarchy
+    """
+    with TM1Service(**TM1_CONFIG) as tm1:
+        return tm1.elements.exists(dimension_name, hierarchy_name, element_name)
