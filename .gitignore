@@ -46,7 +46,6 @@ log/
 *.cfg
 *.config
 *.db
-*.sqlite3
 .tm1_instances/
 .mcp_cache/
 .mcp_data/
